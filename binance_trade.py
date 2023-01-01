@@ -1,10 +1,8 @@
 import binance
 import api
-from pprint import pprint
 import time
 
 client = binance.Client(api.api_key, api.api_secret, testnet=True)
-
 
 def get_asset_balance(symbol):
     try:
@@ -13,7 +11,6 @@ def get_asset_balance(symbol):
         print(f"{symbol} balance: {asset_balance}")
     except:
         print("asset not found")
-
 
 def buy(symbol="ETHUSDT", quantity=10):
     try:
@@ -42,18 +39,15 @@ def sell(symbol="ETHUSDT", quantity=10):
     except:
         print("failed sell")
 
-
 def get_price(symbol):
     price = client.get_ticker(symbol=symbol)["lastPrice"]
     return price
-
 
 def Calculate(sell, buy):
     profit_loss = (sell - buy) * 10
     time.sleep(1.5)
     print(f"profit/loss: ${profit_loss}")
     return
-
 
 def buy_sell():
     buy_result = buy()
@@ -62,3 +56,5 @@ def buy_sell():
     time.sleep(1)
     Calculate(sell_result, buy_result)
     get_asset_balance("usdt")
+
+    
