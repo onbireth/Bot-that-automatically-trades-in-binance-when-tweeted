@@ -3,7 +3,6 @@ import time
 import api
 from binance_bot import *
 
-
 auth = tweepy.OAuth1UserHandler(
     api.Tapi_key, api.Tapi_secret, api.Tacces_key, api.Tacces_secret)
 
@@ -14,7 +13,6 @@ search_words = ["ETH", "eth", "ethereum", "Ethereum", "ETHEREUM"]
 last_tweet = api.user_timeline(screen_name="kebir000", count=1)[0].text
 
 count = 0
-
 
 def check():
     tweet = api.user_timeline(screen_name="kebir000", count=1)[0].text
@@ -38,7 +36,6 @@ def check():
 
     else:
         print("not tweeted")
-
 
 while True:
     check()
